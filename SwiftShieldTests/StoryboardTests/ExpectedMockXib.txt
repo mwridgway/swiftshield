@@ -22,6 +22,7 @@
                     <state key="normal" title="Button"/>
                     <connections>
                         <action selector="AAAASelector:" destination="iN0-l3-epB" eventType="touchUpInside" id="Z2O-xl-27M"/>
+                        <action selector="BBBBSelector:" destination="-1" eventType="touchUpInside" id="Z2O-xl-27M"/>
                     </connections>
                 </button>
             </subviews>

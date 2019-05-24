@@ -43,7 +43,7 @@ class Protector {
             Logger.log(.checking(file: file))
             let data = try! Data(contentsOf: URL(fileURLWithPath: file.path))
             let xmlDoc = try! AEXMLDocument(xml: data, options: AEXMLOptions())
-            obfuscateIBXML(element: xmlDoc.root, obfuscationData: obfuscationData)
+            obfuscateIBXML(element: xmlDoc.root, obfuscationData: obfuscationData, isXib: file.path.hasSuffix(".xib"))
             let obfuscatedFile = xmlDoc.xml
             Logger.log(.saving(file: file))
             file.write(obfuscatedFile)
@@ -53,7 +53,8 @@ class Protector {
     func obfuscateIBXML(element: AEXMLElement,
                         currentModule: String? = nil,
                         obfuscationData: ObfuscationData,
-                        idToXML: [String: AEXMLElement] = [:]) {
+                        idToXML: [String: AEXMLElement] = [:],
+                        isXib: Bool) {
         var idToXML = idToXML
         let supportedModules = (obfuscationData as? AutomaticObfuscationData)?.moduleNames
         let currentModule: String = element.attributes["customModule"] ?? currentModule ?? ""
@@ -68,7 +69,7 @@ class Protector {
         }
         if element.name == "action", let actionSelector = element.attributes["selector"], let trueName = actionSelector.components(separatedBy: ":").first, trueName.count > 4, let protectedClass = obfuscationData.obfuscationDict[trueName] {
             let actionModule = idToXML[element.attributes["destination"] ?? ""]?.attributes["customModule"] ?? ""
-            let isSelectorReference = supportedModules?.contains(actionModule) != false
+            let isSelectorReference = supportedModules?.contains(actionModule) != false || isXib
             let isGestureReference = element.parent?.name == "connections" && element.parent?.parent?.name.contains("GestureRecognizer") != false
             if isSelectorReference || isGestureReference {
                 Logger.log(.protectedReference(originalName: trueName, protectedName: protectedClass))
@@ -78,7 +79,7 @@ class Protector {
         }
         
         for child in element.children {
-            obfuscateIBXML(element: child, currentModule: currentModule, obfuscationData: obfuscationData, idToXML: idToXML)
+            obfuscateIBXML(element: child, currentModule: currentModule, obfuscationData: obfuscationData, idToXML: idToXML, isXib: isXib)
         }
     }
 

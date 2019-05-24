@@ -12,14 +12,16 @@ func loadFile(_ name: String, ofType type: String) -> Data {
 
 class StoryboardObfuscationTests: XCTestCase {
 
-    let obfuscationDict: [String: String] = ["ViewController": "AAAAClass", "MainModuleView": "AAAAClass2", "ThirdModuleView": "CCCCClass", "OtherModuleButton": "BBBBClass", "otherModuleButtonMethod": "AAAASelector"]
+    let obfuscationDict: [String: String] = ["ViewController": "AAAAClass", "MainModuleView": "AAAAClass2", "ThirdModuleView": "CCCCClass", "OtherModuleButton": "BBBBClass", "otherModuleButtonMethod": "AAAASelector", "anotherModuleButtonMethod" : "BBBBSelector"]
 
     func testStoryboardObfuscation() {
-        var obfsData = ObfuscationData()
+//        var obfsData = ObfuscationData()
+        var obfsData = AutomaticObfuscationData(modules: [Module(name: "MyModule", sourceFiles: [], xibFiles: [], plists: [], compilerArguments: [])])
+        
         obfsData.obfuscationDict = self.obfuscationDict
         var data = loadFile("MockStoryboard", ofType: "txt")
         var xmlDoc = try! AEXMLDocument(xml: data, options: AEXMLOptions())
-        Protector(basePath: "abc", dryRun: true).obfuscateIBXML(element: xmlDoc.root, obfuscationData: obfsData)
+        Protector(basePath: "abc", dryRun: true).obfuscateIBXML(element: xmlDoc.root, obfuscationData: obfsData, isXib: false)
         data = loadFile("ExpectedMockStoryboard", ofType: "txt")
         var xmlDoc2 = try! AEXMLDocument(xml: data, options: AEXMLOptions())
         XCTAssertEqual(xmlDoc.xml, xmlDoc2.xml)
@@ -28,7 +30,7 @@ class StoryboardObfuscationTests: XCTestCase {
         xmlDoc = try! AEXMLDocument(xml: data, options: AEXMLOptions())
         data = loadFile("ExpectedMockXib", ofType: "txt")
         xmlDoc2 = try! AEXMLDocument(xml: data, options: AEXMLOptions())
-        Protector(basePath: "abc", dryRun: true).obfuscateIBXML(element: xmlDoc.root, obfuscationData: obfsData)
+        Protector(basePath: "abc", dryRun: true).obfuscateIBXML(element: xmlDoc.root, obfuscationData: obfsData, isXib: true)
         XCTAssertEqual(xmlDoc.xml, xmlDoc2.xml)
 
         data = loadFile("MockStoryboard", ofType: "txt")
@@ -37,7 +39,7 @@ class StoryboardObfuscationTests: XCTestCase {
         obfsData.obfuscationDict = self.obfuscationDict
         data = loadFile("ExpectedMockStoryboardIgnoringMainModule", ofType: "txt")
         xmlDoc2 = try! AEXMLDocument(xml: data, options: AEXMLOptions())
-        Protector(basePath: "abc", dryRun: true).obfuscateIBXML(element: xmlDoc.root, obfuscationData: obfsData)
+        Protector(basePath: "abc", dryRun: true).obfuscateIBXML(element: xmlDoc.root, obfuscationData: obfsData, isXib: false)
         XCTAssertEqual(xmlDoc.xml, xmlDoc2.xml)
     }
 }
