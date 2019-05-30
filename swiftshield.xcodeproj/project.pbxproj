@@ -429,6 +429,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = FD0B108B1E2F8ACD00AED458;
@@ -658,6 +659,10 @@
 					"$(TOOLCHAIN_DIR)/usr/lib",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib";
+				OTHER_LDFLAGS = (
+					"-rpath",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFTSHIELDED = true;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftshield-Sources/SwiftShield-Bridging-Header.h";
@@ -674,6 +679,10 @@
 					"$(TOOLCHAIN_DIR)/usr/lib",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib";
+				OTHER_LDFLAGS = (
+					"-rpath",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFTSHIELDED = true;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftshield-Sources/SwiftShield-Bridging-Header.h";
