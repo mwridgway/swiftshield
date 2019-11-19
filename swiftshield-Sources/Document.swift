@@ -1,10 +1,13 @@
 /**
  *  https://github.com/tadija/AEXML
- *  Copyright (c) Marko Tadić 2014-2018
+ *  Copyright (c) Marko Tadić 2014-2019
  *  Licensed under the MIT license. See LICENSE file.
  */
 
 import Foundation
+#if canImport(FoundationXML)
+import FoundationXML
+#endif
 
 /**
     This class is inherited from `AEXMLElement` and has a few addons to represent **XML Document**.
@@ -48,7 +51,7 @@ open class AEXMLDocument: AEXMLElement {
         
         // add root element to document (if any)
         if let rootElement = root {
-            _ = addChild(rootElement)
+            addChild(rootElement)
         }
     }
     
@@ -76,8 +79,7 @@ open class AEXMLDocument: AEXMLElement {
     */
     public convenience init(xml: String,
                             encoding: String.Encoding = String.Encoding.utf8,
-                            options: AEXMLOptions = AEXMLOptions()) throws
-    {
+                            options: AEXMLOptions = AEXMLOptions()) throws {
         guard let data = xml.data(using: encoding) else { throw AEXMLError.parsingFailed }
         try self.init(xml: data, options: options)
     }
