@@ -658,6 +658,7 @@
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFTSHIELDED = true;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftshield-Sources/SwiftShield-Bridging-Header.h";
@@ -673,6 +674,7 @@
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFTSHIELDED = true;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftshield-Sources/SwiftShield-Bridging-Header.h";
