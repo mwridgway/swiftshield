@@ -658,11 +658,6 @@
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib";
-				OTHER_LDFLAGS = (
-					"-rpath",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFTSHIELDED = true;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftshield-Sources/SwiftShield-Bridging-Header.h";
@@ -677,11 +672,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib",
-				);
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib";
-				OTHER_LDFLAGS = (
-					"-rpath",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFTSHIELDED = true;
