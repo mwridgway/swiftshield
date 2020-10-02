@@ -56,8 +56,8 @@ final class SourceKit {
 
     func indexFile(filePath: String, compilerArgs: [String]) -> SourceKitdResponse {
         let request = SourceKitdRequest(uid: .indexRequestId)
-        request.addParameter(.sourceFileId, value: filePath)
-        request.addCompilerArgsToRequest(compilerArgs)
+        request.addParameter(.sourceFileId, value: filePath.replacingOccurrences(of: "\\ ", with: " "))
+        request.addCompilerArgsToRequest(compilerArgs.map { $0.replacingOccurrences(of: "\\ ", with: " ") })
         return sendSyn(request: request)
     }
 }

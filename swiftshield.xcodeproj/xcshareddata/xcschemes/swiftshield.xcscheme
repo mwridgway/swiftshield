@@ -27,8 +27,6 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <Testables>
-      </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -38,8 +36,8 @@
             ReferencedContainer = "container:swiftshield.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
+      <Testables>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -67,20 +65,29 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-project-root /Users/Matthew/iWlLsOTLIKQu1a32LlOgAXZPbHB3jzkD"
+            argument = "-project-root /Users/robert.leclus/Temp/tmp.fug0ZVaegp/shugo.tenant.ios.ref-architecture_clean"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-automatic-project-file /Users/Matthew/iWlLsOTLIKQu1a32LlOgAXZPbHB3jzkD/NovoFx.xcworkspace"
+            argument = "-automatic-project-file /Users/robert.leclus/Temp/tmp.fug0ZVaegp/shugo.tenant.ios.ref-architecture_clean/ShugoRefArch.xcworkspace"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-automatic-project-scheme &quot;production - SecurityContainer-UAT&quot;"
+            argument = "-automatic-project-scheme &quot;ShugoRefArch - ShugoRefArch - SecurityContainer-UAT&quot;"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-ignore-modules RxSwift,RxRelay,RxCocoa"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
-      <AdditionalOptions>
-      </AdditionalOptions>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "PATH"
+            value = "/Users/robert.leclus/.rvm/gems/ruby-2.7.0/bin:/Users/robert.leclus/.rvm/gems/ruby-2.7.0@global/bin:/Users/robert.leclus/.rvm/rubies/ruby-2.7.0/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/opt/openssl/bin:/usr/local/opt/coreutils/libexec/gnubin:/Users/robert.leclus/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin:/Users/robert.leclus/Library/Android/sdk/tools:/Users/robert.leclus/Library/Android/sdk/platform-tools:/Users/robert.leclus/Library/Android/sdk/ndk-bundle:/Users/robert.leclus/.rvm/bin"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
