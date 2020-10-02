@@ -8,7 +8,7 @@ class File {
     }
     
     init(filePath: String) {
-        self.path = filePath
+        self.path = filePath.replacingOccurrences(of: "\\ ", with: " ")
     }
 
     func read() -> String {
