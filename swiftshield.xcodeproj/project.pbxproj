@@ -661,7 +661,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib";
 				OTHER_LDFLAGS = (
 					"-rpath",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/,
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx/",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFTSHIELDED = true;
@@ -681,7 +681,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib";
 				OTHER_LDFLAGS = (
 					"-rpath",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/,
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx/",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFTSHIELDED = true;
