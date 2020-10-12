@@ -19,7 +19,7 @@ struct Module: Equatable {
         self.name = name
         self.sourceFiles = sourceFiles
         self.xibFiles = xibFiles
-        self.compilerArguments = compilerArguments.map { $0.replacingOccurrences(of: "\\ ", with: " ") }
+        self.compilerArguments = compilerArguments.map { $0.replacingOccurrences(of: "\\ ", with: " ").replacingOccurrences(of: "\\=", with: "=") }
         self.plists = plists
     }
 }
