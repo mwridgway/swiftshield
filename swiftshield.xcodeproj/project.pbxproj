@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DDA7D87253DDF95005CF455 /* sourcekitd.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD4FB0521E5B1734009856B8 /* sourcekitd.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD1BED9821302E3800105411 /* StoryboardObfuscationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BED9721302E3800105411 /* StoryboardObfuscationTests.swift */; };
 		FD1BED9A21302EA200105411 /* MockStoryboard.txt in Resources */ = {isa = PBXBuildFile; fileRef = FD1BED9921302EA200105411 /* MockStoryboard.txt */; };
 		FD1BEDA0213034E100105411 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BED9B213034E100105411 /* Options.swift */; };
@@ -82,6 +83,19 @@
 		FDC74E78212C49AC00B3E03B /* SourceKitDeclarationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC74E77212C49AC00B3E03B /* SourceKitDeclarationType.swift */; };
 		FDFF64D11E5275A000300623 /* Exit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF64D01E5275A000300623 /* Exit.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3DDA7D86253DDF78005CF455 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Frameworks;
+			dstSubfolderSpec = 10;
+			files = (
+				3DDA7D87253DDF95005CF455 /* sourcekitd.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FD0B10941E2F8ACD00AED458 /* swiftshield */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swiftshield; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -375,6 +389,7 @@
 			buildPhases = (
 				FD0B10901E2F8ACD00AED458 /* Sources */,
 				FD0B10911E2F8ACD00AED458 /* Frameworks */,
+				3DDA7D86253DDF78005CF455 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -658,11 +673,8 @@
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib";
-				OTHER_LDFLAGS = (
-					"-rpath",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx/",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFTSHIELDED = true;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftshield-Sources/SwiftShield-Bridging-Header.h";
@@ -678,11 +690,8 @@
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib";
-				OTHER_LDFLAGS = (
-					"-rpath",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx/",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFTSHIELDED = true;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftshield-Sources/SwiftShield-Bridging-Header.h";
